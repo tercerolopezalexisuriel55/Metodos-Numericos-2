@@ -16,19 +16,21 @@ def VFormat(X):
   '''
   X: numpy.ndarray
   '''
+  if X.size == 4:
+    return '({:.6f},{:.6f},{:.6f},{:.6f})'.format(*X)
   if X.size == 3:
-    return '({:.5f},{:.5f},{:.5f})'.format(*X)
+    return '({:.6f},{:.6f},{:.6f})'.format(*X)
   if X.size == 2:
-    return '({:.5f},{:.5f})'.format(*X)
+    return '({:.6f},{:.6f})'.format(*X)
 
-def NewtonNL(Xk,F,J,N=30,T=10e-6):
+def NewtonNL(Xk,F,J,N=30,T=1e-6):
   '''
   Parametros:
     Xk: numpy.ndarray.
     F: function. Sietema No lienal F(X).
     J: function. Matriz Jacobiana de F como funcion J(X).
     N: int. Numero maximo de iteraciones, 30 por defecto.
-    T: float. Tolerancia al error, 10e-6 por defecto.
+    T: float. Tolerancia al error, 1e-6 por defecto.
 
   Retorna la solucion del sistema F: 
     X: numpy.ndarray 
