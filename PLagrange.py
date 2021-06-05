@@ -50,9 +50,7 @@ def PLagrange(xi,fi,show=False):
 
   # simplifica el polinomio
   polisimple = polinomio.expand()
-
-  # SALIDA
-  #print('divisores en L(i): ',divisorL)
+  
   if show:
     print()
     print('Polinomio de Lagrange, expresiones')
